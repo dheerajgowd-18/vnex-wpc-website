@@ -81,10 +81,10 @@
   <!-- CONTACT LAYOUT -->
   <section class="section-pad">
     <div class="container">
-      <div class="grid-2-cols" style="gap: 56px; align-items: start;">
+      <div style="max-width: 700px; margin: 0 auto; background: var(--bg-soft); padding: 48px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);">
 
-        <!-- LEFT: Info Cards + Map -->
-        <div class="reveal">
+        <!-- Contact Info & Map -->
+        <div class="reveal text-center">
           <span class="section-label">REACH US</span>
           <h2 class="section-title" style="margin-bottom: 8px;">We'd Love to Hear<br />From You</h2>
           <div class="section-divider"></div>
@@ -135,123 +135,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: Contact Form -->
-        <div class="reveal reveal-delay-1">
-          <div class="contact-form">
-            <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Send Us a Message</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 28px;">Fill in the details below and our team will reach out to you within 24 hours.</p>
-
-            <!-- Success message -->
-            <div class="form-success" id="formSuccess">
-              <span style="font-size: 1.2rem;">✅</span>
-              <span>Thank you! We'll contact you within 24 hours.</span>
-            </div>
-
-            <!-- Error message -->
-            <div class="form-error-msg" id="formError">
-              <span style="font-size: 1.2rem;">⚠️</span>
-              <span>Please fill in all required fields correctly.</span>
-            </div>
-
-            <!-- Form — Formspree Action -->
-            <form id="contactForm" action="https://formspree.io/f/PLACEHOLDER" method="POST" novalidate>
-
-              <!-- Full Name -->
-              <div class="form-group">
-                <label class="form-label" for="fullName">Full Name <span style="color: var(--accent);">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fullName"
-                  name="fullName"
-                  placeholder="Your full name"
-                  required
-                  autocomplete="name"
-                />
-              </div>
-
-              <!-- Phone + Email -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="phone">Phone Number <span style="color: var(--accent);">*</span></label>
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="phone"
-                    name="phone"
-                    placeholder="+91 XXXXX XXXXX"
-                    required
-                    autocomplete="tel"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">Email Address <span style="color: var(--accent);">*</span></label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                    autocomplete="email"
-                  />
-                </div>
-              </div>
-
-              <!-- City -->
-              <div class="form-group">
-                <label class="form-label" for="city">City <span style="color: var(--accent);">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="city"
-                  name="city"
-                  placeholder="Your city"
-                  required
-                />
-              </div>
-
-              <!-- Product Interest -->
-              <div class="form-group">
-                <label class="form-label" for="product">Product Interest <span style="color: var(--accent);">*</span></label>
-                <select class="form-control" id="product" name="product" required>
-                  <option value="" disabled selected>Select a product category</option>
-                  <option value="digital-doors">Digital Doors</option>
-                  <option value="texture-doors">Texture Doors</option>
-                  <option value="frames">Door Frames</option>
-                  <option value="sheets">WPC Sheets</option>
-                  <option value="full-set">Complete Door + Frame Set</option>
-                  <option value="bulk-order">Bulk / Project Order</option>
-                  <option value="other">Other / General Enquiry</option>
-                </select>
-              </div>
-
-              <!-- Message -->
-              <div class="form-group">
-                <label class="form-label" for="message">Your Message <span style="color: var(--accent);">*</span></label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  name="message"
-                  placeholder="Tell us about your project — dimensions needed, quantity, timeline, or any specific requirements…"
-                  required
-                ></textarea>
-              </div>
-
-              <!-- Submit -->
-              <button
-                type="submit"
-                class="btn-primary btn-submit"
-                style="width: 100%; justify-content: center; font-size: 1rem; padding: 16px; border-radius: 10px; border: none; cursor: pointer;"
-              >
-                Send Message →
-              </button>
-
-              <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 16px;">
-                🔒 Your information is secure and will never be shared with third parties.
-              </p>
-            </form>
-          </div>
         </div>
 
       </div>
