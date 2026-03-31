@@ -14,56 +14,75 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" style="top:0;">
-    <div class="navbar-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="logo.jpg" alt="VNEX WPC Logo" style="height:68px;width:auto;object-fit:contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <span class="nav-logo-text" style="display:none;">VNEX WPC</span>
+  <!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-300">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 z-50">
+        <img src="logo.jpg" alt="VNEX WPC" class="h-10 w-auto">
       </a>
-      <div class="nav-links">
+
+      <!-- Desktop Nav (hidden on mobile) -->
+      <div class="hidden lg:flex items-center gap-8">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <div class="nav-dropdown">
-          <a href="products/index.html" class="nav-link">Products <span class="dropdown-arrow">▾</span></a>
-          <div class="nav-dropdown-menu">
-            <a href="products/digital-doors.html">🚪 Digital Doors</a>
-            <a href="products/texture-doors.html">🌿 Texture Doors</a>
-            <a href="products/frames.html">🪟 Door Frames</a>
-            <a href="products/sheets.html">📋 WPC Sheets</a>
+        <a href="about.html" class="nav-link">About</a>
+        <!-- Products dropdown -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1">
+            Products <span class="text-xs">▾</span>
+          </button>
+          <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <a href="products/digital-doors.html" class="dropdown-item">🚪 Digital Doors</a>
+            <a href="products/texture-doors.html" class="dropdown-item">🌿 Texture Doors</a>
+            <a href="products/frames.html" class="dropdown-item">🪟 Door Frames</a>
+            <a href="products/sheets.html" class="dropdown-item">📋 WPC Sheets</a>
           </div>
         </div>
         <a href="gallery.html" class="nav-link">Gallery</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn-primary text-sm px-5 py-2">
+          Get a Quote
+        </a>
       </div>
-      <div class="nav-cta">
-        <a href="contact.html" class="btn-primary" style="padding:10px 22px; font-size:0.88rem;">Contact Us</a>
-      </div>
-      <button class="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
+
+      <!-- Hamburger (visible only on mobile) -->
+      <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Toggle menu">
+        <span class="ham-line w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+        <span class="ham-line w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+        <span class="ham-line w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
       </button>
     </div>
-  </nav>
+  </div>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <div class="mobile-menu-links">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="products/index.html" style="font-weight:700;">Products</a>
-      <div class="mobile-sub-links">
-        <a href="products/digital-doors.html">Digital Doors</a>
-        <a href="products/texture-doors.html">Texture Doors</a>
-        <a href="products/frames.html">Door Frames</a>
-        <a href="products/sheets.html">WPC Sheets</a>
+  <div id="mobile-menu" class="lg:hidden overflow-hidden max-h-0 transition-all duration-400 bg-white border-t border-gray-100">
+    <div class="px-4 py-4 flex flex-col gap-1">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <!-- Mobile Products Accordion -->
+      <div>
+        <button id="mobile-products-toggle" class="mobile-nav-link w-full flex justify-between">
+          Products <span id="products-arrow">▾</span>
+        </button>
+        <div id="mobile-products-menu" class="overflow-hidden max-h-0 transition-all duration-300 pl-4">
+          <a href="products/digital-doors.html" class="mobile-sub-link">🚪 Digital Doors</a>
+          <a href="products/texture-doors.html" class="mobile-sub-link">🌿 Texture Doors</a>
+          <a href="products/frames.html" class="mobile-sub-link">🪟 Door Frames</a>
+          <a href="products/sheets.html" class="mobile-sub-link">📋 WPC Sheets</a>
+        </div>
       </div>
-      <a href="gallery.html">Gallery</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="btn-primary" style="margin-top:12px; justify-content:center;">Contact Us</a>
+      <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+      <a href="faq.html" class="mobile-nav-link">FAQ</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="contact.html" class="btn-primary text-center mt-3 py-3 rounded-lg">
+        Get a Quote
+      </a>
     </div>
   </div>
+</nav>
 
   <!-- ===================== PAGE HERO ===================== -->
   <section class="page-hero">
@@ -82,25 +101,25 @@
   <!-- ===================== OUR STORY ===================== -->
   <section class="section-pad">
     <div class="container">
-      <div class="grid-2-cols" style="align-items: center; gap: 64px;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
 
         <!-- Image -->
-        <div class="reveal" style="position: relative;">
+        <div class="reveal relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-[var(--shadow-hover)]">
           <img src="images/about-factory.webp" alt="VNEX WPC Manufacturing Facility"
-               style="width:100%;height:500px;object-fit:cover;border-radius:16px;box-shadow:var(--shadow-hover);"
+               class="absolute inset-0 w-full h-full object-cover"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="placeholder-img placeholder-img-about" style="display:none;border-radius:16px;min-height:500px;font-size:5rem;">🏭</div>
-          <div style="position: absolute; top: 24px; left: -20px; background: var(--primary); color: white; padding: 16px 20px; border-radius: 10px; text-align: center; box-shadow: var(--shadow);">
-            <div style="font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600; opacity: 0.7; margin-bottom: 4px;">ESTABLISHED</div>
-            <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; line-height: 1;">2013</div>
+          <div class="placeholder-img placeholder-img-about absolute inset-0 flex items-center justify-center text-5xl" style="display:none;background:var(--accent);">🏭</div>
+          <div class="absolute top-6 left-[-20px] bg-[var(--primary)] text-white p-4 rounded-xl text-center shadow-[var(--shadow)] z-10 w-28">
+            <div class="text-[0.70rem] tracking-wider font-semibold opacity-70 mb-1">ESTABLISHED</div>
+            <div class="font-[Playfair_Display] text-3xl font-black leading-none">2013</div>
           </div>
         </div>
 
         <!-- Story Text -->
-        <div class="reveal reveal-delay-1">
-          <span class="section-label">OUR STORY</span>
+        <div class="reveal reveal-delay-1 text-center md:text-left">
+          <span class="section-label inline-block">OUR STORY</span>
           <h2 class="section-title">Built from a Vision to Transform India's Interiors</h2>
-          <div class="section-divider"></div>
+          <div class="section-divider mx-auto md:mx-0"></div>
 
           <p style="margin-bottom: 18px;">At VNEX WPC, we believe that quality should never be compromised for style. Founded by a team of passionate innovators, VNEX WPC specialises in creating cutting-edge WPC (Wood Plastic Composite) digital doors, frames, and sheets that blend modern aesthetics with unmatched durability. Our mission is to redefine the way individuals and businesses approach home improvement and design — offering products that enhance both functionality and elegance in every space.</p>
 
@@ -137,7 +156,7 @@
         <div class="section-divider centered"></div>
       </div>
 
-      <div class="grid-2" style="gap: 32px;">
+      <div class="flex flex-col md:flex-row gap-8">
 
         <!-- Mission -->
         <div class="reveal" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius: var(--radius); padding: 48px 40px; color: white; position: relative; overflow: hidden;">
@@ -198,9 +217,13 @@
         <p class="section-subtitle" style="margin: 0 auto;">When you compare the facts side by side, the choice becomes crystal clear. WPC isn't just an alternative — it's an upgrade.</p>
       </div>
 
-      <div class="reveal" style="overflow-x: auto;">
-        <table class="comparison-table">
-          <thead>
+      <div class="reveal">
+        <p class="text-xs text-gray-400 mb-2 md:hidden">
+          ← Scroll to see full comparison →
+        </p>
+        <div class="overflow-x-auto -mx-4 px-4 table-wrap">
+          <table class="comparison-table min-w-full text-sm">
+            <thead>
             <tr>
               <th style="text-align: left;">Feature</th>
               <th class="highlight">WPC (VNEX)</th>
@@ -259,6 +282,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </section>
@@ -317,15 +341,15 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 pb-10 border-b border-gray-700">
+        <div class="text-center sm:text-left">
           <div class="footer-logo">
             <img src="logo.jpg" alt="VNEX WPC" onerror="this.style.display='none';" />
             <span class="footer-logo-text">VNEX WPC</span>
           </div>
           <p class="footer-tagline">"Engineered for Life. Designed for You."</p>
           <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; line-height: 1.6;">Premium Wood Polymer Composite manufacturer delivering waterproof, termite-proof, and zero-maintenance building solutions across India.</p>
-          <div class="footer-socials">
+          <div class="footer-socials flex justify-center sm:justify-start">
             <a href="https://www.instagram.com/vnexwpc/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">📷</a>
             <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">💬</a>
             <a href="mailto:vnex7979@gmail.com" class="footer-social" aria-label="Email">✉️</a>
@@ -381,7 +405,10 @@
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>© 2025 VNEX WPC. All Rights Reserved. | Engineered for Life. Designed for You.</p>
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6 text-sm text-gray-400 text-center">
+          <p>© 2025 VNEX WPC. All Rights Reserved.</p>
+          <p>Engineered for Life. Designed for You.</p>
+        </div>
       </div>
     </div>
   </footer>

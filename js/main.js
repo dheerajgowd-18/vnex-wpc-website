@@ -33,59 +33,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ====================================================
-     2. MOBILE HAMBURGER MENU
+     2. NEW ACCORDION HAMBURGER MENU & DROPDOWN
      ==================================================== */
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  let menuOpen = false;
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileProductsToggle = document.getElementById('mobile-products-toggle');
+  const mobileProductsMenu = document.getElementById('mobile-products-menu');
+  const productsArrow = document.getElementById('products-arrow');
 
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      if (menuOpen) {
-        hamburger.classList.add('open');
-        mobileMenu.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      } else {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      document.body.style.overflow = isOpen ? '' : 'hidden';
     });
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (menuOpen && !navbar.contains(e.target) && !mobileMenu.contains(e.target)) {
-        menuOpen = false;
-        hamburger.classList.remove('open');
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
+        hamburger.classList.remove('active');
         document.body.style.overflow = '';
-      }
+      });
     });
   }
 
-
-  /* ====================================================
-     3. PRODUCTS DROPDOWN — hover (desktop) + tap (mobile)
-     ==================================================== */
-  const dropdownTrigger = document.querySelector('.nav-dropdown');
-
-  if (dropdownTrigger) {
-    // Mobile tap toggle
-    const dropdownLink = dropdownTrigger.querySelector('.nav-link');
-    if (dropdownLink) {
-      dropdownLink.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          dropdownTrigger.classList.toggle('open');
-        }
-      });
-    }
-
-    // Close dropdown on outside click
-    document.addEventListener('click', (e) => {
-      if (!dropdownTrigger.contains(e.target)) {
-        dropdownTrigger.classList.remove('open');
+  if (mobileProductsToggle && mobileProductsMenu) {
+    mobileProductsToggle.addEventListener('click', () => {
+      mobileProductsMenu.classList.toggle('open');
+      if (productsArrow) {
+        productsArrow.textContent = mobileProductsMenu.classList.contains('open') ? '▴' : '▾';
       }
     });
   }
