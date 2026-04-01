@@ -21,7 +21,7 @@
       
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-2 z-50">
-        <img src="logo.jpg" alt="VNEX WPC" class="h-10 w-auto">
+        <img src="logo.jpg" alt="VNEX WPC" class="h-14 lg:h-16 w-auto">
       </a>
 
       <!-- Desktop Nav (hidden on mobile) -->
@@ -99,48 +99,58 @@
 
 
   <!-- ===================== OUR STORY ===================== -->
-  <section class="section-pad">
-    <div class="container">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-        <!-- Image -->
-        <div class="reveal relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-[var(--shadow-hover)]">
-          <img src="images/about-factory.webp" alt="VNEX WPC Manufacturing Facility"
-               class="absolute inset-0 w-full h-full object-cover"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="placeholder-img placeholder-img-about absolute inset-0 flex items-center justify-center text-5xl" style="display:none;background:var(--accent);">🏭</div>
-          <div class="absolute top-6 left-[-20px] bg-[var(--primary)] text-white p-4 rounded-xl text-center shadow-[var(--shadow)] z-10 w-28">
-            <div class="text-[0.70rem] tracking-wider font-semibold opacity-70 mb-1">ESTABLISHED</div>
-            <div class="font-[Playfair_Display] text-3xl font-black leading-none">2013</div>
+  <section class="section-pad relative overflow-hidden bg-white">
+    <!-- Subtle background gradient for modern corporate style -->
+    <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-gray-50 to-transparent z-0"></div>
+    <div class="container relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Text Content (Left) -->
+        <div class="lg:col-span-6 order-2 lg:order-1 reveal text-left">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-[3px] w-8 bg-[#C85A2A] opacity-80 rounded-full"></div>
+            <span class="text-sm font-bold tracking-widest text-[#1C2331] opacity-60 uppercase">Our Story</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-[#1C2331] leading-tight mb-6" style="font-family: 'Playfair Display', serif;">
+            Built from a Vision to <br/>Transform India's Interiors
+          </h2>
+          <p class="text-lg text-gray-500 font-medium leading-relaxed mb-6">
+            At VNEX WPC, we believe that quality should never be compromised for style. Founded by a team of passionate innovators, VNEX WPC specialises in creating cutting-edge WPC digital doors, frames, and sheets that blend modern aesthetics with unmatched durability.
+          </p>
+          <p class="text-[0.95rem] text-gray-600 leading-relaxed mb-8">
+            Driven by a commitment to sustainability and innovation, we harness advanced technology to produce our WPC products. Each door and frame is crafted with precision using rotogravure printing and UV coating, ensuring they withstand the test of time while exuding contemporary charm that complements any interior.
+          </p>
+          
+          <div class="flex flex-wrap gap-8 mb-10">
+            <div class="text-left">
+              <div class="text-3xl font-black text-[#C85A2A] mb-1" style="font-family: 'Playfair Display', serif;">500+</div>
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Happy Clients</p>
+            </div>
+            <div class="text-left">
+              <div class="text-3xl font-black text-[#C85A2A] mb-1" style="font-family: 'Playfair Display', serif;">1000+</div>
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Projects Done</p>
+            </div>
+            <div class="text-left">
+              <div class="text-3xl font-black text-[#C85A2A] mb-1" style="font-family: 'Playfair Display', serif;">10+</div>
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Years Innovating</p>
+            </div>
           </div>
         </div>
 
-        <!-- Story Text -->
-        <div class="reveal reveal-delay-1 text-center md:text-left">
-          <span class="section-label inline-block">OUR STORY</span>
-          <h2 class="section-title">Built from a Vision to Transform India's Interiors</h2>
-          <div class="section-divider mx-auto md:mx-0"></div>
-
-          <p style="margin-bottom: 18px;">At VNEX WPC, we believe that quality should never be compromised for style. Founded by a team of passionate innovators, VNEX WPC specialises in creating cutting-edge WPC (Wood Plastic Composite) digital doors, frames, and sheets that blend modern aesthetics with unmatched durability. Our mission is to redefine the way individuals and businesses approach home improvement and design — offering products that enhance both functionality and elegance in every space.</p>
-
-          <p style="margin-bottom: 18px;">Driven by a commitment to sustainability and innovation, we harness advanced technology to produce our WPC products. Each door and frame is crafted with precision using rotogravure printing and UV coating, ensuring they withstand the test of time while exuding contemporary charm that complements any interior.</p>
-
-          <p style="margin-bottom: 32px;">Our values are deeply rooted in reliability and trust — we strive to build lasting relationships with our customers, providing solutions that elevate their projects. Today, VNEX WPC products are trusted by leading architects, interior designers, real estate developers, and homeowners across India.</p>
-
-          <div style="display: flex; gap: 32px; flex-wrap: wrap;">
-            <div style="text-align: center;">
-              <div style="font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--accent);">500+</div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Happy Clients</div>
-            </div>
-            <div style="text-align: center;">
-              <div style="font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--accent);">1000+</div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Projects Done</div>
-            </div>
-            <div style="text-align: center;">
-              <div style="font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--accent);">10+</div>
-              <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Years of Innovation</div>
+        <!-- Image Content (Right fixed) -->
+        <div class="lg:col-span-6 order-1 lg:order-2 reveal relative">
+          <div class="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-200/60 h-[380px] lg:h-[550px] border-[6px] border-white">
+            <img src="images/about-factory.webp" alt="VNEX WPC Manufacturing Facility" class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="placeholder-img absolute inset-0 flex items-center justify-center text-5xl" style="display:none;background:var(--accent);">🏭</div>
+            <!-- Sleek Established Badge -->
+            <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md px-5 py-[14px] rounded-2xl shadow-xl flex flex-col border border-white/60">
+              <span class="text-[0.65rem] font-bold text-gray-500 tracking-widest uppercase mb-0.5">Established</span>
+              <span class="text-[1.7rem] font-black text-[#1C2331] leading-none" style="font-family: 'Playfair Display', serif;">2013</span>
             </div>
           </div>
+          
+          <!-- Decorative abstract elements -->
+          <div class="absolute -top-6 -right-6 w-32 h-32 bg-[#C85A2A]/10 rounded-full blur-[40px] -z-10"></div>
+          <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-[#1C2331]/5 rounded-full blur-[50px] -z-10"></div>
         </div>
       </div>
     </div>
@@ -342,23 +352,23 @@
   <footer class="footer">
     <div class="container">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 pb-10 border-b border-gray-700">
-        <div class="text-center sm:text-left">
+        <div class="text-left">
           <div class="footer-logo">
             <img src="logo.jpg" alt="VNEX WPC" onerror="this.style.display='none';" />
             <span class="footer-logo-text">VNEX WPC</span>
           </div>
           <p class="footer-tagline">"Engineered for Life. Designed for You."</p>
           <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; line-height: 1.6;">Premium Wood Polymer Composite manufacturer delivering waterproof, termite-proof, and zero-maintenance building solutions across India.</p>
-          <div class="footer-socials flex justify-center sm:justify-start">
+          <div class="footer-socials flex justify-start gap-4">
             <a href="https://www.instagram.com/vnexwpc/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">📷</a>
             <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">💬</a>
             <a href="mailto:vnex7979@gmail.com" class="footer-social" aria-label="Email">✉️</a>
             <a href="#" class="footer-social" aria-label="LinkedIn">💼</a>
           </div>
         </div>
-        <div class="footer-col">
+        <div class="footer-col text-left">
           <h5>Quick Links</h5>
-          <div class="footer-links">
+          <div class="footer-links grid grid-cols-2 gap-x-6 gap-y-3 mt-4">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="products/index.html">All Products</a>
@@ -371,7 +381,7 @@
             <a href="contact.html">Contact Us</a>
           </div>
         </div>
-        <div class="footer-col">
+        <div class="footer-col text-left">
           <h5>Contact Us</h5>
           <div class="footer-contact-item">
             <span class="footer-contact-icon">📞</span>
@@ -405,7 +415,7 @@
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6 text-sm text-gray-400 text-center">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-6 text-sm text-gray-200 text-center">
           <p>© 2025 VNEX WPC. All Rights Reserved.</p>
           <p>Engineered for Life. Designed for You.</p>
         </div>
