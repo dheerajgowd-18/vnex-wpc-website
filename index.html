@@ -319,13 +319,13 @@
 <body>
 
   <!-- ===================== NAVBAR ===================== -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100 transition-all duration-300">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="flex items-center justify-between h-20 lg:h-[100px] transition-all duration-300" id="navbar-inner">
       
       <!-- Logo -->
       <a href="index.html" class="flex items-center z-50 group">
-        <img src="logo-dark.svg" alt="VNEX WPC" class="h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 origin-left">
+        <img src="logo.webp" alt="VNEX WPC" class="h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 origin-left">
       </a>
 
       <!-- Desktop Nav -->
@@ -361,6 +361,9 @@
         <a href="faq.html" class="nav-link text-gray-700 hover:text-[#C85A2A] font-semibold transition-colors">FAQ</a>
         <a href="contact.html" class="nav-link text-gray-700 hover:text-[#C85A2A] font-semibold transition-colors">Contact</a>
         
+        <a href="catalog.html" target="_blank" class="ml-2 hidden xl:inline-flex items-center justify-center px-5 py-2.5 bg-[#C85A2A] hover:bg-[#b04f25] text-white text-sm font-bold tracking-wide rounded-lg shadow-lg shadow-[#C85A2A]/20 transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Catalog
+        </a>
         <a href="contact.html" class="ml-2 inline-flex items-center justify-center px-6 py-2.5 bg-[#1C2331] hover:bg-[#2A354A] text-white text-sm font-bold tracking-wide rounded-lg shadow-lg shadow-[#1C2331]/20 transition-all duration-300 hover:-translate-y-0.5">
           Get a Quote
         </a>
@@ -397,9 +400,14 @@
       <a href="faq.html" class="mobile-nav-link text-lg font-bold text-gray-800 py-3 border-b border-gray-50">FAQ</a>
       <a href="contact.html" class="mobile-nav-link text-lg font-bold text-gray-800 py-3 mb-4">Contact</a>
       
-      <a href="contact.html" class="flex items-center justify-center w-full px-6 py-4 bg-[#C85A2A] text-white text-base font-bold rounded-xl shadow-lg shadow-[#C85A2A]/20">
-        Request a Quote
-      </a>
+      <div class="flex flex-col gap-3">
+        <a href="catalog.html" target="_blank" class="flex items-center justify-center w-full px-6 py-3 border-2 border-[#1C2331] text-[#1C2331] hover:bg-gray-50 text-base font-bold rounded-xl transition-colors">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> View Catalog
+        </a>
+        <a href="contact.html" class="flex items-center justify-center w-full px-6 py-3 bg-[#C85A2A] text-white text-base font-bold rounded-xl shadow-lg shadow-[#C85A2A]/20">
+          Request a Quote
+        </a>
+      </div>
     </div>
   </div>
 </nav>
@@ -438,8 +446,8 @@
         <a href="products/index.html" class="btn-primary w-full sm:w-auto text-center px-8 py-3">
           Explore Products
         </a>
-        <a href="contact.html" class="btn-outline w-full sm:w-auto text-center px-8 py-3">
-          Contact Us
+        <a href="catalog.html" target="_blank" class="btn-outline w-full sm:w-auto text-center px-8 py-3" style="display:flex;align-items:center;justify-content:center;gap:8px;">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Download Catalog
         </a>
       </div>
 
@@ -556,7 +564,7 @@
             <img src="images/about-factory.webp" alt="VNEX WPC Manufacturing Facility" class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
             <div class="placeholder-img absolute inset-0 flex items-center justify-center text-5xl" style="display:none;background:var(--accent);">🏭</div>
             <!-- Sleek Established Badge -->
-            <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md px-5 py-[14px] rounded-2xl shadow-xl flex flex-col border border-white/60">
+            <div class="absolute bottom-6 left-6 bg-white px-5 py-[14px] rounded-2xl shadow-xl flex flex-col border border-white/60">
               <span class="text-[0.65rem] font-bold text-gray-500 tracking-widest uppercase mb-0.5">Established</span>
               <span class="text-[1.7rem] font-black text-[#1C2331] leading-none" style="font-family: 'Playfair Display', serif;">2025</span>
             </div>
@@ -763,7 +771,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 pb-10 border-b border-gray-700">
         <div class="text-left">
           <div class="footer-logo">
-            <img src="logo-light.svg" alt="VNEX WPC" class="h-16 lg:h-20 w-auto" />
+            <img src="logo.webp" alt="VNEX WPC" class="h-16 lg:h-20 w-auto" />
           </div>
           <p class="footer-tagline">"Engineered for Life. Designed for You."</p>
           <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.6;">Premium Wood Polymer Composite manufacturer delivering waterproof, termite-proof, and zero-maintenance building solutions across India.</p>
@@ -785,6 +793,7 @@
             <a href="gallery.html">Gallery</a>
             <a href="faq.html">FAQs</a>
             <a href="contact.html">Contact Us</a>
+            <a href="catalog.html" target="_blank" style="color: #C85A2A; font-weight: bold;">Digital Catalog 📥</a>
           </div>
         </div>
         <div class="footer-col text-left">
