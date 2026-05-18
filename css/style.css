@@ -814,10 +814,6 @@ p { color: var(--text-body); }
   background-image: url('../images/door-frames.webp');
 }
 
-.placeholder-img-sheets {
-  background-image: url('../images/wpc-sheets.webp');
-}
-
 .placeholder-img-digital {
   background-image: url('../images/digital-doors-enhanced.webp');
 }
