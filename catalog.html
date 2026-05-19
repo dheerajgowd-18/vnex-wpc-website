@@ -3,70 +3,625 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Catalog — VNEX WPC</title>
+  <title>Interactive Digital Catalog — VNEX WPC</title>
+  <meta name="description" content="Browse the full VNEX WPC premium doors, frames, and composite solutions digital catalog instantly in your browser." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  
   <style>
-    body, html {
+    :root {
+      --primary: #1C2331;
+      --accent: #C85A2A;
+      --accent-hover: #b04f25;
+      --dark-bg: #0D1117;
+      --panel-bg: #161B22;
+      --text-color: #F0F6FC;
+      --text-muted: #8B949E;
+      --border-color: #30363D;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body, html {
       height: 100%;
       overflow: hidden;
-      background-color: #333;
-      font-family: sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
     }
-    .back-bar {
-      background-color: #1C2331;
-      color: white;
-      padding: 12px 24px;
+
+    /* --- TOP HEADER NAVIGATION --- */
+    header {
+      background-color: var(--primary);
+      height: 70px;
+      padding: 0 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 60px;
-      box-sizing: border-box;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 10;
+      position: relative;
     }
-    .back-link {
+
+    .logo-section a {
       color: white;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-weight: bold;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .logo-section a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
       font-size: 14px;
-    }
-    .back-link:hover {
-      color: #C85A2A;
-    }
-    .catalog-container {
-      height: calc(100vh - 60px);
-      width: 100%;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
       border: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--panel-bg);
+      border-color: var(--text-muted);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      box-shadow: 0 4px 12px rgba(200, 90, 42, 0.3);
+    }
+
+    /* --- MAIN LAYOUT --- */
+    .app-container {
+      display: flex;
+      height: calc(100vh - 70px);
+      position: relative;
+    }
+
+    /* --- THUMBNAIL DRAWER SIDEBAR --- */
+    .sidebar {
+      width: 240px;
+      background-color: var(--panel-bg);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.3s ease;
+      z-index: 5;
+    }
+
+    .sidebar-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .thumbnail-grid {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* Styling custom scrollbar */
+    .thumbnail-grid::-webkit-scrollbar {
+      width: 6px;
+    }
+    .thumbnail-grid::-webkit-scrollbar-thumb {
+      background-color: var(--border-color);
+      border-radius: 3px;
+    }
+
+    .thumb-card {
+      background-color: var(--dark-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      padding: 6px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .thumb-card:hover {
+      border-color: var(--text-muted);
+    }
+
+    .thumb-card.active {
+      border-color: var(--accent);
+      background-color: rgba(200, 90, 42, 0.05);
+    }
+
+    .thumb-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      object-fit: contain;
+      background: #111;
+      min-height: 140px;
+    }
+
+    .thumb-page-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .thumb-card.active .thumb-page-num {
+      color: var(--accent);
+    }
+
+    /* --- VIEWER CONTAINER --- */
+    .viewer-area {
+      flex: 1;
+      background-color: var(--dark-bg);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      height: 100%;
+    }
+
+    /* Large Interactive Page Container */
+    .page-stage {
+      flex: 1;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      user-select: none;
+    }
+
+    .page-wrapper {
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+      max-height: 100%;
+      max-width: 100%;
+      aspect-ratio: 1 / 1.78; /* Match standard vertical door catalog pages */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #111;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease;
+    }
+
+    .catalog-page-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Preloading hidden page images to cache them */
+    .preload-cache {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      z-index: -999;
+    }
+
+    /* Nav Arrows */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: rgba(22, 27, 34, 0.85);
+      border: 1px solid var(--border-color);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 4;
+      transition: all 0.3s ease;
+    }
+
+    .nav-arrow:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-arrow:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .arrow-left {
+      left: 20px;
+    }
+
+    .arrow-right {
+      right: 20px;
+    }
+
+    /* --- FOOTER CONTROLS --- */
+    .controls-panel {
+      width: 100%;
+      max-width: 800px;
+      background-color: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .scrubber-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .scrubber-bar {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border-color);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .scrubber-bar::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .scrubber-bar::-webkit-slider-thumb:hover {
+      transform: scale(1.25);
+    }
+
+    .page-indicator {
+      font-size: 14px;
+      font-weight: 700;
+      min-width: 80px;
+      text-align: right;
+      color: var(--text-color);
+    }
+
+    .buttons-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .control-btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .control-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .control-btn:hover {
+      background-color: var(--border-color);
+    }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none; /* Hide thumbnail drawer on mobile */
+      }
+      .nav-arrow {
+        width: 44px;
+        height: 44px;
+      }
+      .arrow-left { left: 8px; }
+      .arrow-right { right: 8px; }
+      .viewer-area { padding: 12px; }
+      header { padding: 0 12px; }
+      .logo-text { display: none; }
+      .btn span { display: none; } /* Hide button texts on small screens */
     }
   </style>
 </head>
 <body>
 
-  <div class="back-bar">
-    <a href="index.html" class="back-link">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
-      Back to Website
-    </a>
-    <div style="font-weight: bold; letter-spacing: 1px;">VNEX DIGITAL CATALOG</div>
-    <a href="vnex-digital-catalogue.pdf" download class="back-link" style="color: #C85A2A;">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-      Download
-    </a>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-section">
+      <a href="index.html">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+        <span class="logo-text">Back to Home</span>
+      </a>
+    </div>
+    <div style="font-weight: 700; font-size: 16px; letter-spacing: 1px; text-transform: uppercase;">
+      VNEX Digital Catalog
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn-outline" id="toggle-sidebar-btn">
+        <span>Thumbnails</span>
+      </button>
+      <a href="vnex-digital-catalogue.pdf" download class="btn btn-accent">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        <span>Download PDF</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <div class="app-container">
+
+    <!-- SIDEBAR DRAWERS (Thumbnails) -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">Catalog Pages</div>
+      <div class="thumbnail-grid" id="thumbnail-grid">
+        <!-- Render 52 Page Thumbnails dynamically -->
+      </div>
+    </div>
+
+    <!-- MAIN VIEWER -->
+    <div class="viewer-area">
+      
+      <!-- NAV ARROWS -->
+      <button class="nav-arrow arrow-left" id="prev-btn" aria-label="Previous Page">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      </button>
+
+      <button class="nav-arrow arrow-right" id="next-btn" aria-label="Next Page">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+
+      <!-- ACTIVE PAGE STAGE -->
+      <div class="page-stage">
+        <div class="page-wrapper" id="page-wrapper">
+          <img src="images/catalog/page_1.webp" alt="Catalog Page 1" class="catalog-page-img" id="main-page-img" />
+        </div>
+      </div>
+
+      <!-- CONTROLS PANEL -->
+      <div class="controls-panel">
+        <div class="scrubber-row">
+          <input type="range" class="scrubber-bar" id="page-scrubber" min="1" max="52" value="1">
+          <div class="page-indicator" id="page-indicator">1 / 52</div>
+        </div>
+        <div class="buttons-row">
+          <div class="control-btn-group">
+            <button class="control-btn" id="first-page-btn">⏮ First</button>
+            <button class="control-btn" id="last-page-btn">⏭ Last</button>
+          </div>
+          <div class="control-btn-group">
+            <button class="control-btn" id="fullscreen-btn">🖥️ Fullscreen</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="catalog-container">
-    <object data="vnex-digital-catalogue.pdf" type="application/pdf" width="100%" height="100%">
-      <iframe src="vnex-digital-catalogue.pdf" width="100%" height="100%" style="border: none;">
-        <p>Your browser does not support PDFs. <a href="vnex-digital-catalogue.pdf">Download the PDF</a>.</p>
-      </iframe>
-    </object>
+  <!-- CACHE BACKGROUND PRELOADING -->
+  <div class="preload-cache" id="preload-cache">
+    <!-- Next/previous pages loaded silently in background -->
   </div>
+
+  <!-- VIEWER LOGIC -->
+  <script>
+    const TOTAL_PAGES = 52;
+    let currentPage = 1;
+    let sidebarOpen = true;
+
+    // DOM Elements
+    const mainPageImg = document.getElementById('main-page-img');
+    const pageIndicator = document.getElementById('page-indicator');
+    const pageScrubber = document.getElementById('page-scrubber');
+    const sidebar = document.getElementById('sidebar');
+    const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
+    const thumbnailGrid = document.getElementById('thumbnail-grid');
+    const pageWrapper = document.getElementById('page-wrapper');
+    const preloadCache = document.getElementById('preload-cache');
+
+    // Controls
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const firstPageBtn = document.getElementById('first-page-btn');
+    const lastPageBtn = document.getElementById('last-page-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    // Initialize Thumbnails Grid
+    function initThumbnails() {
+      for (let i = 1; i <= TOTAL_PAGES; i++) {
+        const card = document.createElement('div');
+        card.className = `thumb-card ${i === 1 ? 'active' : ''}`;
+        card.dataset.page = i;
+        card.innerHTML = `
+          <img src="images/catalog/page_${i}.webp" alt="Page ${i}" loading="lazy">
+          <span class="thumb-page-num">Page ${i}</span>
+        `;
+        card.addEventListener('click', () => {
+          goToPage(i);
+        });
+        thumbnailGrid.appendChild(card);
+      }
+    }
+
+    // Go to specific page
+    function goToPage(pageNum) {
+      if (pageNum < 1 || pageNum > TOTAL_PAGES) return;
+      
+      currentPage = pageNum;
+      
+      // Update main page image src
+      mainPageImg.src = `images/catalog/page_${pageNum}.webp`;
+      mainPageImg.alt = `Catalog Page ${pageNum}`;
+      
+      // Update scrubber & indicator
+      pageScrubber.value = pageNum;
+      pageIndicator.textContent = `${pageNum} / ${TOTAL_PAGES}`;
+      
+      // Update sidebar active thumbnail
+      document.querySelectorAll('.thumb-card').forEach((card, idx) => {
+        if (idx + 1 === pageNum) {
+          card.classList.add('active');
+          // Scroll active card into view within sidebar
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      // Background pre-load next and previous pages for zero delay
+      preloadAdjacentPages(pageNum);
+    }
+
+    // Preload neighbor pages
+    function preloadAdjacentPages(pageNum) {
+      preloadCache.innerHTML = '';
+      const pagesToLoad = [];
+      
+      if (pageNum + 1 <= TOTAL_PAGES) pagesToLoad.push(pageNum + 1);
+      if (pageNum + 2 <= TOTAL_PAGES) pagesToLoad.push(pageNum + 2);
+      if (pageNum - 1 >= 1) pagesToLoad.push(pageNum - 1);
+      
+      pagesToLoad.forEach(p => {
+        const img = new Image();
+        img.src = `images/catalog/page_${p}.webp`;
+        preloadCache.appendChild(img);
+      });
+    }
+
+    // Button event listeners
+    prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+    firstPageBtn.addEventListener('click', () => goToPage(1));
+    lastPageBtn.addEventListener('click', () => goToPage(TOTAL_PAGES));
+
+    pageScrubber.addEventListener('input', (e) => {
+      goToPage(parseInt(e.target.value));
+    });
+
+    // Toggle sidebar
+    toggleSidebarBtn.addEventListener('click', () => {
+      sidebarOpen = !sidebarOpen;
+      sidebar.style.display = sidebarOpen ? 'flex' : 'none';
+    });
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        goToPage(currentPage - 1);
+      } else if (e.key === 'ArrowRight') {
+        goToPage(currentPage + 1);
+      } else if (e.key === 'Home') {
+        goToPage(1);
+      } else if (e.key === 'End') {
+        goToPage(TOTAL_PAGES);
+      }
+    });
+
+    // Fullscreen Toggle
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        pageWrapper.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // Swipe Support for mobile
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    function handleGesture() {
+      if (touchendX < touchstartX - 50) {
+        goToPage(currentPage + 1); // Swipe left -> Next Page
+      }
+      if (touchendX > touchstartX + 50) {
+        goToPage(currentPage - 1); // Swipe right -> Prev Page
+      }
+    }
+
+    pageWrapper.addEventListener('touchstart', e => {
+      touchstartX = e.changedTouches[0].screenX;
+    });
+
+    pageWrapper.addEventListener('touchend', e => {
+      touchendX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    // Initialize Page
+    initThumbnails();
+    preloadAdjacentPages(1);
+
+  </script>
 
 </body>
 </html>
