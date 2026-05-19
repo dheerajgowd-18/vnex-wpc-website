@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
      4. ACTIVE NAV LINK DETECTION
      ==================================================== */
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.nav-link, .mobile-menu-links a');
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link, .mobile-menu-links a');
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
@@ -176,6 +176,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (testimonialSection) {
       testimonialSection.addEventListener('mouseenter', stopSlider);
       testimonialSection.addEventListener('mouseleave', startSlider);
+      
+      // Swipe gestures for mobile
+      let touchstartX = 0;
+      let touchendX = 0;
+      
+      testimonialSection.addEventListener('touchstart', (e) => {
+        touchstartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      
+      testimonialSection.addEventListener('touchend', (e) => {
+        touchendX = e.changedTouches[0].screenX;
+        const threshold = 50;
+        if (touchendX < touchstartX - threshold) {
+          // Swipe left -> Next slide
+          stopSlider();
+          goToSlide(currentSlide + 1);
+          startSlider();
+        } else if (touchendX > touchstartX + threshold) {
+          // Swipe right -> Prev slide
+          stopSlider();
+          goToSlide(currentSlide - 1);
+          startSlider();
+        }
+      }, { passive: true });
     }
   }
 
