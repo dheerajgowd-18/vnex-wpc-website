@@ -274,7 +274,20 @@
     /* --- RESPONSIVE ADJUSTMENTS --- */
     @media (max-width: 768px) {
       .sidebar {
-        display: none; /* Hide thumbnails drawer on mobile */
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        display: flex !important; /* Override collapsed display none for smooth animation */
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.6);
+        border-right: 1px solid var(--border-color);
+      }
+
+      .sidebar:not(.collapsed) {
+        transform: translateX(0); /* Slide drawer in from left */
       }
       .viewer-area {
         padding: 12px 6px;
@@ -400,6 +413,11 @@
         // Jump to page on click
         card.addEventListener('click', () => {
           pageDiv.scrollIntoView({ behavior: 'smooth' });
+          // Automatically close sidebar on mobile so they can see the page immediately!
+          if (window.innerWidth <= 768) {
+            sidebarOpen = false;
+            sidebar.classList.add('collapsed');
+          }
         });
         
         thumbnailGrid.appendChild(card);
@@ -446,7 +464,8 @@
     }
 
     // Sidebar drawer toggle
-    toggleSidebarBtn.addEventListener('click', () => {
+    toggleSidebarBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent document click handler from instantly closing it!
       sidebarOpen = !sidebarOpen;
       sidebar.classList.toggle('collapsed', !sidebarOpen);
     });
@@ -454,6 +473,22 @@
     // Initialize all logic
     renderCatalogPages();
     initScrollTracker();
+
+    // Responsive Mobile Initializer
+    if (window.innerWidth <= 768) {
+      sidebarOpen = false;
+      sidebar.classList.add('collapsed');
+    }
+
+    // Close mobile drawer when clicking outside
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && sidebarOpen) {
+        if (!sidebar.contains(e.target) && !toggleSidebarBtn.contains(e.target)) {
+          sidebarOpen = false;
+          sidebar.classList.add('collapsed');
+        }
+      }
+    });
   </script>
 
 </body>
