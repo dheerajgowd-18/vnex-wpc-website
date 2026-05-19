@@ -226,6 +226,7 @@
     /* --- SCROLLABLE VIEWER AREA --- */
     .viewer-area {
       flex: 1;
+      min-width: 0; /* Prevent flexbox collapse */
       background-color: var(--dark-bg);
       overflow-y: auto;
       scroll-behavior: smooth;
@@ -246,17 +247,14 @@
       border-radius: 8px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       position: relative;
-      aspect-ratio: 1 / 1.78; /* Consistent scaling aspect ratio */
+      aspect-ratio: 893 / 1262; /* Precise portrait page ratio (0.707) */
     }
 
     .page-container img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       display: block;
     }
 
