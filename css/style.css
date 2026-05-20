@@ -823,18 +823,34 @@ p { color: var(--text-body); }
 
 .placeholder-img-doors {
   background-image: url('../images/hero-door.png');
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #F8FAFC !important;
 }
 
 .placeholder-img-frames {
   background-image: url('../images/door-frames.webp');
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #F8FAFC !important;
 }
 
 .placeholder-img-digital {
   background-image: url('../images/digital-doors-enhanced.webp');
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #F8FAFC !important;
 }
 
 .placeholder-img-texture {
   background-image: url('../images/texture-doors.webp');
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #F8FAFC !important;
 }
 
 .placeholder-img-about {
