@@ -1055,10 +1055,10 @@ p { color: var(--text-body); }
 }
 
 .footer-logo img {
-  height: 52px;
+  height: 96px;
   background: white;
-  padding: 6px;
-  border-radius: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
 }
 
 .footer-logo-text {
