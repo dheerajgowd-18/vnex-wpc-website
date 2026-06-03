@@ -81,16 +81,17 @@
       position: absolute;
       right: 0; top: 0; bottom: 0;
       width: 46%;
-      overflow: hidden;
+      background: #f5f0eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-image-panel img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.95;
-      transform: scale(1.05);
-      animation: heroImgZoom 12s ease-in-out infinite alternate;
+      object-fit: contain;
+      opacity: 1;
     }
 
     .hero-image-panel::after {
@@ -100,10 +101,7 @@
       background: linear-gradient(to right, #FFFFFF 0%, transparent 35%);
     }
 
-    @keyframes heroImgZoom {
-      from { transform: scale(1.05); }
-      to   { transform: scale(1.15); }
-    }
+
 
     /* Left content */
     .hero-left {
@@ -444,7 +442,7 @@
 
     <!-- Right image panel -->
     <div class="hero-image-panel">
-      <img src="images/door-vx93.png" alt="Premium VNEX WPC Door — VX-93 X-Cross Design" />
+      <img src="images/hero-door-room.png" alt="Premium VNEX WPC Door - VX-91 X-Cross Design installed in luxury interior" />
     </div>
 
     <!-- Left content -->
