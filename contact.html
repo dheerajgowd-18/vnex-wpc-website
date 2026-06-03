@@ -121,76 +121,109 @@
 
 
   <!-- CONTACT LAYOUT -->
-  <section class="section-pad">
+  <section style="background: var(--bg); padding: 80px 0;">
     <div class="container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 24px 80px rgba(28,46,94,0.18); min-height: 560px;">
 
-        <!-- Left: info cards -->
-        <div class="space-y-4">
-          <div class="reveal">
-            <span class="section-label inline-block">REACH US</span>
-            <h2 class="section-title" style="margin-bottom: 8px;">We'd Love to Hear<br />From You</h2>
-            <div class="section-divider"></div>
-            <p style="color: var(--text-muted); margin-bottom: 32px; line-height: 1.7;">Whether you're a homeowner planning a renovation, an architect specifying products for a project, or a contractor looking for bulk supply — our team is ready to help you find the right WPC solution.</p>
-          </div>
+        <!-- Left Panel: Dark with contact details -->
+        <div style="background: linear-gradient(135deg, #1C2E5E 0%, #0F1C3F 100%); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;">
+          <!-- Decorative circles -->
+          <div style="position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(200,90,42,0.15);pointer-events:none;"></div>
+          <div style="position:absolute;bottom:-80px;left:-40px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(255,255,255,0.05);pointer-events:none;"></div>
 
-          <div class="contact-info-card reveal reveal-delay-1">
-            <div class="contact-info-icon">📞</div>
-            <div>
-              <div class="contact-info-label">Phone</div>
-              <div class="contact-info-value">+91 XXXXX XXXXX</div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Monday – Saturday, 9:00 AM – 6:00 PM</div>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:block;">● CONTACT DETAILS</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:white;line-height:1.25;margin-bottom:40px;">Get In Touch<br>With Us</h2>
+
+          <div style="display:flex;flex-direction:column;gap:28px;">
+            <!-- Email -->
+            <div style="display:flex;align-items:flex-start;gap:16px;">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(200,90,42,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="#C85A2A" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Email</div>
+                <a href="mailto:info@vnexwpc.com" style="color:white;font-weight:600;font-size:0.95rem;">info@vnexwpc.com</a>
+                <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:2px;">We reply within 24 hours</div>
+              </div>
             </div>
-          </div>
 
-          <div class="contact-info-card reveal reveal-delay-2">
-            <div class="contact-info-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-            <div>
-              <div class="contact-info-label">Email</div>
-              <div class="contact-info-value"><a href="mailto:vnex7979@gmail.com" style="color: var(--primary);">vnex7979@gmail.com</a></div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">We respond to all enquiries within 24 hours</div>
+            <!-- Address -->
+            <div style="display:flex;align-items:flex-start;gap:16px;">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(200,90,42,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="#C85A2A" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Address</div>
+                <div style="color:white;font-weight:500;font-size:0.92rem;line-height:1.6;">7-583/B, Pipeline Road, Subhash Nagar,<br>IDA Jeedimetla, Hyderabad – 500 055. T.S.</div>
+              </div>
             </div>
-          </div>
 
-          <div class="contact-info-card reveal reveal-delay-3">
-            <div class="contact-info-icon">📍</div>
-            <div>
-              <div class="contact-info-label">Address</div>
-              <div class="contact-info-value">7-583/B, Pipeline Road, Subhash Nagar, IDA Jeedimetla, Hyderabad - 500 055. T.S.</div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">India</div>
+            <!-- Hours -->
+            <div style="display:flex;align-items:flex-start;gap:16px;">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(200,90,42,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="20" height="20" fill="none" stroke="#C85A2A" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Business Hours</div>
+                <div style="color:white;font-weight:500;font-size:0.92rem;">Mon – Sat: 9:00 AM – 6:00 PM</div>
+                <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:2px;">Sunday: Closed</div>
+              </div>
             </div>
-          </div>
-
-          <div class="contact-info-card reveal reveal-delay-3">
-            <div class="contact-info-icon">⏰</div>
-            <div>
-              <div class="contact-info-label">Business Hours</div>
-              <div class="contact-info-value">Monday – Saturday: 9:00 AM – 6:00 PM</div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Sunday: Closed</div>
-            </div>
-          </div>
-
-          <!-- Map Placeholder -->
-          <div class="map-placeholder reveal" style="margin-top: 24px;">
-            <span style="font-size: 3rem;">🗺️</span>
-            <p>Google Maps Embed</p>
-            <p style="font-size: 0.78rem;">7-583/B, Pipeline Road, Subhash Nagar, IDA Jeedimetla, Hyderabad - 500 055. T.S.</p>
           </div>
         </div>
 
-        <!-- Right: form -->
-        <div class="reveal">
-          <div style="background: var(--bg-soft); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 24px; color: var(--text-dark);">Send an Enquiry</h3>
-            <div class="bg-gray-50 p-8 rounded-2xl flex items-center justify-center text-center"><div style="color:var(--text-muted);"><h3 style="font-size:1.5rem;margin-bottom:12px;color:var(--text-dark);font-family:'Playfair Display',serif;">Get in Touch</h3><p>Please reach out to us via Phone or Email provided on this page.</p></div></div>
-          </div>
-        </div>
+        <!-- Right Panel: Clean Form -->
+        <div style="background:white;padding:56px 48px;display:flex;flex-direction:column;justify-content:center;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--text-dark);margin-bottom:8px;">Send an Enquiry</h3>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:32px;">Fill in the form and we'll get back to you within 24 hours.</p>
 
-      </div>
+          <form action="mailto:info@vnexwpc.com" method="POST" enctype="text/plain" style="display:flex;flex-direction:column;gap:16px;">
+            <!-- Name + Email row -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div>
+                <input type="text" id="contact-name" name="Name" placeholder="Name" required
+                  style="width:100%;padding:14px 16px;border:1.5px solid #E2E6EF;border-radius:10px;font-size:0.92rem;font-family:'DM Sans',sans-serif;color:var(--text-dark);outline:none;transition:border-color 0.2s;background:#FAFBFC;"
+                  onfocus="this.style.borderColor='#C85A2A'" onblur="this.style.borderColor='#E2E6EF'">
+              </div>
+              <div>
+                <input type="email" id="contact-email" name="Email" placeholder="Email Address" required
+                  style="width:100%;padding:14px 16px;border:1.5px solid #E2E6EF;border-radius:10px;font-size:0.92rem;font-family:'DM Sans',sans-serif;color:var(--text-dark);outline:none;transition:border-color 0.2s;background:#FAFBFC;"
+                  onfocus="this.style.borderColor='#C85A2A'" onblur="this.style.borderColor='#E2E6EF'">
+              </div>
+            </div>
+            <!-- Phone -->
+            <input type="tel" id="contact-phone" name="Phone" placeholder="Your Phone"
+              style="width:100%;padding:14px 16px;border:1.5px solid #E2E6EF;border-radius:10px;font-size:0.92rem;font-family:'DM Sans',sans-serif;color:var(--text-dark);outline:none;transition:border-color 0.2s;background:#FAFBFC;"
+              onfocus="this.style.borderColor='#C85A2A'" onblur="this.style.borderColor='#E2E6EF'">
+            <!-- Message -->
+            <textarea id="contact-message" name="Message" placeholder="Your Message" rows="5" required
+              style="width:100%;padding:14px 16px;border:1.5px solid #E2E6EF;border-radius:10px;font-size:0.92rem;font-family:'DM Sans',sans-serif;color:var(--text-dark);outline:none;resize:vertical;transition:border-color 0.2s;background:#FAFBFC;"
+              onfocus="this.style.borderColor='#C85A2A'" onblur="this.style.borderColor='#E2E6EF'"></textarea>
+            <!-- Submit -->
+            <button type="submit" id="contact-submit"
+              style="width:fit-content;padding:14px 40px;background:#8B1A1A;color:white;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;border:none;border-radius:10px;cursor:pointer;transition:background 0.2s,transform 0.15s;letter-spacing:0.04em;"
+              onmouseover="this.style.background='#6B1313';this.style.transform='translateY(-1px)'"
+              onmouseout="this.style.background='#8B1A1A';this.style.transform='translateY(0)'">
+              Submit
+            </button>
+          </form>
+        </div>
 
       </div>
     </div>
   </section>
+
+  <!-- Responsive: stack on mobile -->
+  <style>
+    @media (max-width: 768px) {
+      .contact-split-grid { grid-template-columns: 1fr !important; }
+      .contact-name-email-row { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+
+
+
 
 
   <!-- WHY REACH OUT -->
@@ -246,7 +279,7 @@
           <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 24px; line-height: 1.6;">Premium Wood Polymer Composite manufacturer delivering waterproof, termite-proof, and zero-maintenance building solutions across India.</p>
           <div class="footer-socials flex justify-start gap-4">
             <a href="https://www.instagram.com/vnexwpc/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-            <a href="mailto:vnex7979@gmail.com" class="footer-social" aria-label="Email"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+            <a href="mailto:info@vnexwpc.com" class="footer-social" aria-label="Email"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
           </div>
         </div>
         <div class="footer-col text-left">
@@ -268,7 +301,7 @@
           <div class="footer-contact-item">
             <span class="footer-contact-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
             <div>
-              <div style="color: rgba(255,255,255,0.85); font-weight: 500;">vnex7979@gmail.com</div>
+              <div style="color: rgba(255,255,255,0.85); font-weight: 500;">info@vnexwpc.com</div>
               <div style="font-size: 0.82rem;">We reply within 24 hours</div>
             </div>
           </div>
