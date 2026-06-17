@@ -618,7 +618,7 @@ p { color: var(--text-body); }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 120px 24px 80px;
+  padding: 160px 24px 100px;
 }
 
 .page-hero::before {

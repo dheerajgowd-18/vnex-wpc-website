@@ -120,6 +120,20 @@
   </section>
 
 
+  <!-- BECOME A PARTNER BANNER -->
+  <section style="background: #1C2E5E; padding: 32px 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:240px;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:800;color:white;margin-bottom:6px;">Become a VNEX Partner</h3>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;margin:0;">Join our growing network of dealers, distributors, architects and builders.</p>
+        </div>
+        <a href="mailto:info@vnexwpc.com?subject=VNEX Partner Enquiry" style="color:var(--accent);font-weight:700;font-size:0.88rem;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;">Contact us to apply →</a>
+      </div>
+    </div>
+  </section>
+
+
   <!-- CONTACT LAYOUT -->
   <section style="background: var(--bg); padding: 80px 0;">
     <div class="container">
@@ -165,7 +179,7 @@
               </div>
               <div>
                 <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Business Hours</div>
-                <div style="color:white;font-weight:500;font-size:0.92rem;">Mon – Sat: 9:00 AM – 6:00 PM</div>
+                <div style="color:white;font-weight:500;font-size:0.92rem;">Mon – Sat: 8:00 AM – 9:00 PM</div>
                 <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:2px;">Sunday: Closed</div>
               </div>
             </div>
@@ -218,6 +232,16 @@
     @media (max-width: 768px) {
       .contact-split-grid { grid-template-columns: 1fr !important; }
       .contact-name-email-row { grid-template-columns: 1fr !important; }
+      /* Full contact panel stacks on mobile */
+      .contact-split-grid > div:first-child { border-radius: 20px 20px 0 0 !important; }
+      .contact-split-grid > div:last-child  { border-radius: 0 0 20px 20px !important; }
+      /* Outer wrapper becomes single column */
+      [style*='grid-template-columns: 1fr 1fr'] {
+        grid-template-columns: 1fr !important;
+      }
+      [style*='display:grid;grid-template-columns:1fr 1fr'] {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 
@@ -260,7 +284,7 @@
     <div class="container">
       <div class="reveal">
         <h2>Prefer to Talk to Us Directly?</h2>
-        <p>Our team is available Monday – Saturday, 9AM to 6PM. We love talking about WPC!</p>
+        <p>Our team is available Monday – Saturday, 8AM to 9PM. We love talking about WPC!</p>
         
       </div>
     </div>

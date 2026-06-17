@@ -141,13 +141,65 @@
     }
 
     .hero-title {
+      margin-bottom: 28px;
+      line-height: 1;
+    }
+
+    .ht-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200, 90, 42, 0.08);
+      border: 1.5px solid rgba(200, 90, 42, 0.25);
+      color: #C85A2A;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      white-space: nowrap;
+    }
+
+    .ht-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #C85A2A;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .ht-word1 {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      color: #1C2331;
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .ht-word2 {
+      display: block;
       font-family: 'Playfair Display', serif;
       font-weight: 900;
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      color: #C85A2A;
       line-height: 1.08;
-      color: #1C2331;
-      margin-bottom: 24px;
       letter-spacing: -1px;
+      position: relative;
+    }
+
+    .ht-word2::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -8px;
+      height: 3px; width: 60px;
+      background: #C85A2A;
+      border-radius: 4px;
     }
 
     .hero-title .line-accent {
@@ -442,17 +494,17 @@
 
     <!-- Right image panel -->
     <div class="hero-image-panel">
-      <img src="images/hero-door-room.png" alt="Premium VNEX WPC Door - VX-91 X-Cross Design installed in luxury interior" />
+      <img src="images/digital-doors-enhanced.webp" alt="Premium VNEX WPC Digital Door - Art Deco Fan Design in modern interior" />
     </div>
 
     <!-- Left content -->
     <div class="hero-left">
       
 
-      <h1 class="hero-title hero-animate text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl" id="ha2">
-        India's Trusted<br/>
-        Manufacturer &amp; Processor of<br/>
-        <span class="word-orange">Premium WPC Doors</span>
+      <h1 class="hero-title hero-animate" id="ha2">
+        <span class="ht-badge">India's Trusted Manufacturer &amp; Processor of</span>
+        <span class="ht-word1">Premium</span>
+        <span class="ht-word2">WPC Doors</span>
       </h1>
 
       <p class="hero-desc hero-animate text-sm sm:text-base lg:text-lg" id="ha3">
@@ -630,7 +682,7 @@
         <!-- Texture Doors -->
         <div class="product-card reveal reveal-delay-1">
           <div style="overflow:hidden;height:260px;background:#F8FAFC;">
-            <img src="images/texture-vx177.png" alt="VNEX Texture WPC Doors"
+            <img src="images/texture-door-front.webp" alt="VNEX Texture WPC Doors"
                  style="width:100%;height:260px;object-fit:contain;transition:transform 0.5s ease;"
                  onmouseover="this.style.transform='scale(1.05)'"
                  onmouseout="this.style.transform='scale(1)'" loading="lazy" />
@@ -707,28 +759,28 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
         <div style="overflow:hidden;border-radius:12px;" class="h-64 lg:h-[320px]">
-          <img src="images/teak-frame-enhanced.webp" alt="Enhanced Teak Frame"
-               style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;cursor:pointer;"
-               onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"
-               onclick="window.location='gallery.html'" / loading="lazy">
+          <img src="images/door-vx91.png" alt="VX-91 X-Pattern Digital Door"
+               style="width:100%;height:100%;object-fit:contain;background:linear-gradient(to bottom,#EDE5DB,#C4A882);transition:transform 0.5s ease;cursor:pointer;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"
+               onclick="window.location='gallery.html'" loading="lazy">
         </div>
         <div style="overflow:hidden;border-radius:12px;" class="h-64 lg:h-[320px]">
-          <img src="images/gal-mirror-triangle.webp" alt="Mirror Triangle Modern Digital Door"
-               style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;cursor:pointer;"
-               onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"
-               onclick="window.location='gallery.html'" / loading="lazy">
+          <img src="images/door-vx93.png" alt="VX-93 X-Cross Digital Door"
+               style="width:100%;height:100%;object-fit:contain;background:linear-gradient(to bottom,#EDE5DB,#C4A882);transition:transform 0.5s ease;cursor:pointer;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"
+               onclick="window.location='gallery.html'" loading="lazy">
         </div>
         <div style="overflow:hidden;border-radius:12px;" class="h-64 lg:h-[320px]">
-          <img src="images/texture-door-front.webp" alt="Texture Door Front Design"
-               style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;cursor:pointer;"
-               onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"
-               onclick="window.location='gallery.html'" / loading="lazy">
+          <img src="images/texture-door-front.webp" alt="Texture Premium Wood Door"
+               style="width:100%;height:100%;object-fit:contain;background:linear-gradient(to bottom,#EDE5DB,#C4A882);transition:transform 0.5s ease;cursor:pointer;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"
+               onclick="window.location='gallery.html'" loading="lazy">
         </div>
         <div style="overflow:hidden;border-radius:12px;" class="h-64 lg:h-[320px]">
-          <img src="images/gal-black-marble-teak.webp" alt="Black Marble and Teak Digital Door"
-               style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;cursor:pointer;"
-               onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"
-               onclick="window.location='gallery.html'" / loading="lazy">
+          <img src="images/teak-frame-enhanced.webp" alt="WPC Teak Door Frame"
+               style="width:100%;height:100%;object-fit:contain;background:linear-gradient(to bottom,#F5F0EA,#D4C4A8);transition:transform 0.5s ease;cursor:pointer;"
+               onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"
+               onclick="window.location='gallery.html'" loading="lazy">
         </div>
       </div>
       <div class="text-center" style="margin-top:36px;">
@@ -759,7 +811,7 @@
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"The texture finish on VNEX doors is absolutely stunning — you can't tell it apart from real teak wood. Everyone who visits our home asks about them. Highly recommended!"</p>
             <div class="testimonial-author">Lakshmi Devi</div>
-            <div class="testimonial-role">Warangal</div>
+            <div class="testimonial-role">Hyderabad</div>
           </div>
         </div>
         <div class="testimonial-slide">
@@ -767,7 +819,7 @@
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"We've installed VNEX WPC doors across multiple homes and the quality is outstanding every single time. No complaints at all — the doors look great and hold up perfectly."</p>
             <div class="testimonial-author">Venkat Rao</div>
-            <div class="testimonial-role">Secunderabad</div>
+            <div class="testimonial-role">Hyderabad</div>
           </div>
         </div>
         <div class="testimonial-slide">
@@ -775,7 +827,7 @@
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"VNEX WPC doors are waterproof, scratch-resistant, and look premium. We chose them for our property and they exceeded every expectation. The team was also very supportive."</p>
             <div class="testimonial-author">Srinivas Murthy</div>
-            <div class="testimonial-role">Vijayawada</div>
+            <div class="testimonial-role">Hyderabad</div>
           </div>
         </div>
         <div class="testimonial-slide">
@@ -783,7 +835,7 @@
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"We finally switched to VNEX WPC and it was the best decision for our home. No termite damage, no warping, no repainting. The doors look as good as the day they were installed."</p>
             <div class="testimonial-author">Padmavathi Naidu</div>
-            <div class="testimonial-role">Karimnagar</div>
+            <div class="testimonial-role">Hyderabad</div>
           </div>
         </div>
         <div class="testimonial-slide">
@@ -791,7 +843,7 @@
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"Used VNEX WPC doors and frames throughout our residential complex. The installation was smooth, the quality is top-notch, and the premium look has genuinely added value to the property."</p>
             <div class="testimonial-author">Ramana Kumar</div>
-            <div class="testimonial-role">Nizamabad</div>
+            <div class="testimonial-role">Hyderabad</div>
           </div>
         </div>
       </div>
