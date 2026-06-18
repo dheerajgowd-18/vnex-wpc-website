@@ -141,92 +141,39 @@
     }
 
     .hero-title {
-      margin-bottom: 28px;
-      line-height: 1;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .ht-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(200, 90, 42, 0.08);
-      border: 1.5px solid rgba(200, 90, 42, 0.25);
-      color: #C85A2A;
+    .ht-subtitle {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-      white-space: nowrap;
-    }
-
-    .ht-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: #C85A2A;
-      border-radius: 50%;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .ht-word1 {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 500;
+      color: #374151; /* Corporate slate gray */
+      line-height: 1.3;
       display: block;
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: clamp(2.8rem, 5vw, 4.8rem);
-      color: #1C2331;
-      line-height: 1.05;
-      letter-spacing: -1px;
+      letter-spacing: -0.02em;
     }
 
-    .ht-word2 {
+    .ht-main {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
       display: block;
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: clamp(2.8rem, 5vw, 4.8rem);
-      color: #C85A2A;
-      line-height: 1.08;
-      letter-spacing: -1px;
-      position: relative;
-    }
-
-    .ht-word2::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -8px;
-      height: 3px; width: 60px;
-      background: #C85A2A;
-      border-radius: 4px;
-    }
-
-    .hero-title .line-accent {
+      margin-top: 4px;
+      
+      /* Premium subtle gradient */
+      background: linear-gradient(135deg, #C85A2A 0%, #9A3E15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       color: transparent;
-      -webkit-text-stroke: 2px rgba(255,255,255,0.3);
     }
 
-    .hero-title .word-orange {
-      color: #C85A2A;
-      position: relative;
-    }
-
-    .hero-title .word-orange::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      bottom: -4px;
-      height: 3px;
-      background: #C85A2A;
-      border-radius: 3px;
-      transform: scaleX(0);
-      animation: underlineIn 0.8s ease 1.2s forwards;
-    }
-
-    @keyframes underlineIn {
-      to { transform: scaleX(1); }
-    }
 
     .hero-desc {
       font-family: 'DM Sans', sans-serif;
@@ -502,9 +449,8 @@
       
 
       <h1 class="hero-title hero-animate" id="ha2">
-        <span class="ht-badge">India's Trusted Manufacturer &amp; Processor of</span>
-        <span class="ht-word1">Premium</span>
-        <span class="ht-word2">WPC Doors</span>
+        <span class="ht-subtitle">India's Trusted <br class="hidden sm:block">Manufacturer &amp; Processor of</span>
+        <span class="ht-main">Premium WPC Doors</span>
       </h1>
 
       <p class="hero-desc hero-animate text-sm sm:text-base lg:text-lg" id="ha3">
