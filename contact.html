@@ -191,7 +191,7 @@
           <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--text-dark);margin-bottom:8px;">Send an Enquiry</h3>
           <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:32px;">Fill in the form and we'll get back to you within 24 hours.</p>
 
-          <form action="mailto:info@vnexwpc.com" method="POST" enctype="text/plain" style="display:flex;flex-direction:column;gap:16px;">
+          <form id="contactForm" style="display:flex;flex-direction:column;gap:16px;">
             <!-- Name + Email row -->
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
               <div>
@@ -221,6 +221,21 @@
               Submit
             </button>
           </form>
+
+          <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              var name = document.getElementById('contact-name').value;
+              var email = document.getElementById('contact-email').value;
+              var phone = document.getElementById('contact-phone').value;
+              var message = document.getElementById('contact-message').value;
+              
+              var subject = encodeURIComponent('New Enquiry from ' + name);
+              var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\nMessage:\n' + message);
+              
+              window.location.href = 'mailto:info@vnexwpc.com?subject=' + subject + '&body=' + body;
+            });
+          </script>
         </div>
 
       </div>
